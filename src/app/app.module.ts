@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ɵAnimationGroupPlayer } from '@angular/animations';
 import { CartSummaryComponent } from './Components/cart-summary/cart-summary.component';
 import { ProductAddComponent } from './Components/product-add/product-add.component';
+import { LoginComponent } from './Components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductAddComponent } from './Components/product-add/product-add.compon
     VatAddedPipe,
     FilterPipePipe,
     CartSummaryComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
