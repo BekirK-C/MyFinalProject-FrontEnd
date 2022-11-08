@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 ​import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
@@ -17,6 +17,7 @@ import { ɵAnimationGroupPlayer } from '@angular/animations';
 import { CartSummaryComponent } from './Components/cart-summary/cart-summary.component';
 import { ProductAddComponent } from './Components/product-add/product-add.component';
 import { LoginComponent } from './Components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import { LoginComponent } from './Components/login/login.component';
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
